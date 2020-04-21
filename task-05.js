@@ -2,7 +2,11 @@
 const getAllPropValues = function (arr, prop) {
   let propValuesArray = []
   for (const element of arr) {
-    propValuesArray.push(element[prop])
+    if (prop in element) {
+    propValuesArray.push(element[prop])} 
+    else {
+      continue
+    }
   }
   return propValuesArray
 };

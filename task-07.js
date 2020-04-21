@@ -1,4 +1,8 @@
 "use strict"
+const Transaction = {
+  DEPOSIT: 'deposit',
+  WITHDRAW: 'withdraw',
+};
 /*
  * Каждая транзакция это объект со свойствами: id, type и amount
  */
@@ -30,7 +34,7 @@ const account = {
    * после чего добавляет его в историю транзакций
    */
   deposit(amount) {
-    this.transactions.push(this.createTransaction(amount, 'deposit'))
+    this.transactions.push(this.createTransaction(amount, Transaction.DEPOSIT))
     this.balance += amount
   },
 
@@ -48,7 +52,7 @@ const account = {
       alert('Недостаточно средств на счету. Операция невозможна')
     }
     else {
-      this.transactions.push(this.createTransaction(amount, 'withdraw'))
+      this.transactions.push(this.createTransaction(amount, Transaction.WITHDRAW))
       this.balance -= amount
     }
   },
